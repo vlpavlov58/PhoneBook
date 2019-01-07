@@ -1,0 +1,10 @@
+﻿@model PhoneBook.Models.Group
+
+<table>
+    <tr>
+        <td>Name: @Html.TextBoxFor(x => x.Name)
+        @Html.ValidationMessageFor(x=>x.Name)</td>
+    </tr>
+</table>
+
+<input type="submit" value="Save" />

@@ -1,0 +1,30 @@
+﻿@model List<PhoneBook.Models.Group>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Groups</h2>
+
+
+@if (Model != null)
+{
+    <table>
+        <tr>
+            <th>Name</th>
+            <th></th>
+            <th></th>
+        </tr>
+        @foreach (var group in Model)
+        {
+            <tr>
+                <td>@group.Name</td>
+                <td>@Html.ActionLink("Edit", "Update", 
+                   routeValues: new{ id= group.Id})</td>
+                <td><a href="">Delete</a></td>
+            </tr>
+        }
+    </table>
+}
+
+@Html.ActionLink("New Group", "Add", "Groups");

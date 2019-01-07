@@ -1,0 +1,14 @@
+﻿
+@model PhoneBook.Models.Contact
+@{
+    ViewBag.Title = "Update";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Update</h2>
+
+@using (Html.BeginForm("Update", "Contacts", FormMethod.Post))
+{
+    @Html.Partial("Partials/_Edit")
+
+}

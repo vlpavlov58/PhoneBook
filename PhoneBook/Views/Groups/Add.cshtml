@@ -1,0 +1,14 @@
+﻿@model PhoneBook.Models.Group
+@{
+    ViewBag.Title = "Add";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>New Group</h2>
+
+@using (Html.BeginForm("Add", "Groups", FormMethod.Post))
+{
+    @Html.Partial("Partials/_Edit")
+
+//<input type="submit" value="Save" />
+}

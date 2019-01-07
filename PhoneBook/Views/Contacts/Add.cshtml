@@ -1,0 +1,12 @@
+﻿@model PhoneBook.Models.Contact
+@{
+    ViewBag.Title = "Add";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>New Contact</h2>
+
+@using (Html.BeginForm("Add", "Contacts", FormMethod.Post))
+{
+    @Html.Partial("Partials/_Edit")
+}
