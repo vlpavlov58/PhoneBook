@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PhoneBook.Attributes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -13,6 +14,7 @@ namespace PhoneBook.Models
         [Required(ErrorMessage = "Required Name")]
         public string FirstName { get; set; }
 
+        [Reverse(value: LastName)]
         public string LastName { get; set; }
 
         public string Position { get; set; }

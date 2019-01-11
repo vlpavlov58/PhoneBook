@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PhoneBook.Attributes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -11,6 +12,7 @@ namespace PhoneBook.Models
         public int Id { get; set; }
 
         [Required(ErrorMessage ="Required Name")]
+        [NonNumeric(ValidateAction.Numbers, ErrorMessage = "Can't start from number")]
         public string Name { get; set; }
     }
 }
