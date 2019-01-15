@@ -1,11 +1,11 @@
-﻿using PhoneBook.Attributes;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
-using System.Web;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace PhoneBook.Models
+namespace PhoneBook.Models.DataModels
 {
     public class Contact
     {
@@ -14,7 +14,6 @@ namespace PhoneBook.Models
         [Required(ErrorMessage = "Required Name")]
         public string FirstName { get; set; }
 
-        //[Reverse(value: LastName)]
         public string LastName { get; set; }
 
         public string Position { get; set; }
