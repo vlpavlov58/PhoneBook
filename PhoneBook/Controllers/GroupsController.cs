@@ -1,7 +1,9 @@
 ﻿using PhoneBook.Models;
+using PhoneBook.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 
@@ -9,23 +11,13 @@ namespace PhoneBook.Controllers
 {
     public class GroupsController : Controller
     {
+        private IGroupsApiService _groupService
+            = new GroupsApiService();
+
         // GET: Groups
-        public ActionResult Index()
+        public async Task<ActionResult> Index()
         {
-            var groupsList =
-                new List<Group>
-                {
-                    new Group
-                    {
-                        Id = 1,
-                        Name = "Family"
-                    },
-                    new Group
-                    {
-                        Id = 2,
-                        Name = "Friends"
-                    }
-                };
+            var groupsList = await _groupService.GetList();
             return View(groupsList);
         }
 
@@ -50,7 +42,7 @@ namespace PhoneBook.Controllers
             var group = new Group
             {
                 Id = id.Value,
-                Name = "For editing"
+                GroupName = "For editing"
             };
 
             return View();

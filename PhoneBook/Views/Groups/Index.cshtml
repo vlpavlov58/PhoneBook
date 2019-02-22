@@ -1,4 +1,4 @@
-﻿@model List<PhoneBook.Models.Group>
+﻿@model List<PhoneBook.Models.DataModels.Group>
 
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -18,7 +18,7 @@
         @foreach (var group in Model)
         {
             <tr>
-                <td>@group.Name</td>
+                <td>@group.GroupName</td>
                 <td>@Html.ActionLink("Edit", "Update", 
                    routeValues: new{ id= group.Id})</td>
                 <td><a href="">Delete</a></td>

@@ -1,37 +1,36 @@
-﻿using PhoneBook.Models;
+﻿using PhoneBook.AdonetLayer.Repositories;
 using PhoneBook.Models.DataModels;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BusinessLogic.Services
 {
     public interface IGroupService
     {
         List<Group> GetList();
+
+        void Add(Group group);
     }
 
     public class GroupService : IGroupService
     {
+        private readonly GroupRepository _groupRepository;
+
+        public GroupService()
+        {
+            _groupRepository = new GroupRepository();
+        }
+
         public List<Group> GetList()
         {
-            var groupsList =
-                new List<Group>
-                {
-                    new Group
-                    {
-                        Id = 1,
-                        Name = "Family"
-                    },
-                    new Group
-                    {
-                        Id = 2,
-                        Name = "Friends"
-                    }
-                };
-            return groupsList;
+            return _groupRepository.GetAll()
+                                            .OrderBy(g => g.Name)
+                                            .ToList();
+        }
+
+        public void Add (Group group)
+        {
+            _groupRepository.Add(group);
         }
     }
 }

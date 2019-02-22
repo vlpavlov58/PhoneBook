@@ -1,7 +1,9 @@
 ﻿using PhoneBook.Models;
+using PhoneBook.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 
@@ -9,28 +11,34 @@ namespace PhoneBook.Controllers
 {
     public class ContactsController : Controller
     {
-        // GET: Contacts
-        public ActionResult List()
-        {
-            var contacts = new List<Contact>
-            {
-                new Contact
-                {
-                    Id = 1,
-                    FirstName = "John",
-                    LastName = "Snow",
-                    Position = "Lord Commander"
-                },
-                new Contact
-                {
-                    Id = 2,
-                    FirstName = "John",
-                    LastName = "Doe",
-                    Position = "Anonymous"
-                }
-            };
 
-            return View(contacts);
+        private IContactsApiService _contactService
+           = new ContactsApiService();
+        // GET: Contacts
+
+        public async Task<ActionResult> List()
+        {
+
+            var contactsList = await _contactService.GetList();
+            return View(contactsList);
+
+
+            //var contacts = new List<Contact>
+            //{
+            //    new Contact
+            //    {
+            //        Id = 1,
+            //        FirstName = "John",
+            //        LastName = "Snow",
+            //        Position = "Lord Commander"
+            //    },
+            //    new Contact
+            //    {
+            //        Id = 2,
+            //        FirstName = "John",
+            //        LastName = "Doe",
+            //        Position = "Anonymous"
+            //    }
         }
 
         public ActionResult GetDetails(int id)

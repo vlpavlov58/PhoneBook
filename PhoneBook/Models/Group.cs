@@ -13,6 +13,6 @@ namespace PhoneBook.Models
 
         [Required(ErrorMessage ="Required Name")]
         [NonNumeric(ValidateAction.Numbers, ErrorMessage = "Can't start from number")]
-        public string Name { get; set; }
+        public string GroupName { get; set; }
     }
 }

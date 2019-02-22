@@ -2,6 +2,8 @@
 using PhoneBook.Models.DataModels;
 using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -27,10 +29,12 @@ namespace PhoneBook.API.Controllers
         }
 
         [HttpPost]
-        public IHttpActionResult Add ([FromBody] Group group)
+        public IHttpActionResult Add([FromBody] Group group)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
+
+            _groupService.Add(group);
 
             return Ok();
         }

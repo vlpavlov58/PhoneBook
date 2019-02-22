@@ -11,6 +11,8 @@ namespace PhoneBook.Models.DataModels
     {
         public int Id { get; set; }
 
+        public int GroupId { get; set; }
+
         [Required(ErrorMessage = "Required Name")]
         public string FirstName { get; set; }
 
