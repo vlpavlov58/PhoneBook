@@ -32,5 +32,10 @@ namespace BusinessLogic.Services
         {
             _groupRepository.Add(group);
         }
+
+        public void Delete (Group group)
+        {
+            _groupRepository.Delete(group);
+        }
     }
 }
