@@ -49,6 +49,7 @@ namespace PhoneBook.AdonetLayer.Repositories
             {
                 conn.Open();
 
+                //пример использования хранимой процедуры
                 string sql = "AddGroup";
 
                 var command = new SqlCommand(sql, conn);
