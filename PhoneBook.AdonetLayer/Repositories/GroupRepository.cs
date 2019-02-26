@@ -61,39 +61,70 @@ namespace PhoneBook.AdonetLayer.Repositories
             }
         }
 
-        public void Delete (Group group)
+        public void Delete(int Id)
         {
             using (SqlConnection conn
                 = new SqlConnection(ConnectionString))
             {
                 conn.Open();
 
-                string sql = string.Format("DELETE FROM [Group] WHERE NAME = []");
+                string sql = $"DELETE FROM [Group] WHERE Id = {Id}";
 
                 var cmd = new SqlCommand(sql, conn);
-                cmd.Parameters.Remove(
-                    new SqlParameter("Name", group.Name));
 
                 cmd.ExecuteNonQuery();
             }
         }
 
-        public int GetGroup (Group group)
+        public void Update(Group group)
         {
             using (SqlConnection conn
                 = new SqlConnection(ConnectionString))
             {
                 conn.Open();
 
-                string sql = string.Format("SELECT FROM [Group] WHERE Id = 1");
+                string sql = $"UPDATE [Group] SET [Name] = {group.Name} WHERE Id = {group.Id}";
 
                 var cmd = new SqlCommand(sql, conn);
-                cmd.Parameters.Remove(
-                    new SqlParameter("Id", group.Id));
 
                 cmd.ExecuteNonQuery();
             }
-            return (group.Id);
-        } 
+        }
+
+        public Group GetById(int Id)
+        {
+            Group group = new Group();
+            
+            using (SqlConnection conn
+                = new SqlConnection(ConnectionString))
+            {
+                conn.Open();
+
+                string sql = $"SELECT * FROM [Group] WHERE [Id] = {Id}";
+
+                SqlCommand command
+                    = new SqlCommand(sql, conn);
+
+                DataTable groupsData = new DataTable();
+
+                SqlDataAdapter dataAdapter
+                    = new SqlDataAdapter(command);
+
+                dataAdapter.Fill(groupsData);
+
+                DataRow dataRow = groupsData.Rows[0];
+
+                if (dataRow != null)
+                {
+                    group = new Group
+                    {
+                        Id = int.Parse(dataRow["Id"].ToString()),
+                        Name = dataRow["Name"].ToString()
+                    };
+
+                }
+                return group;
+            }
+        }
     }
 }

@@ -23,9 +23,9 @@ namespace PhoneBook.API
             // Web API routes
             config.MapHttpAttributeRoutes();
 
-            config.Routes.MapHttpRoute(
-                name: "NewRoute",
-                routeTemplate: "api/{controller}/{action}");
+            //config.Routes.MapHttpRoute(
+            //    name: "NewRoute",
+            //    routeTemplate: "api/{controller}/{action}");
 
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",

@@ -9,7 +9,13 @@ namespace BusinessLogic.Services
     {
         List<Group> GetList();
 
+        Group GetById(int Id);
+
         void Add(Group group);
+
+        void Delete(int Id);
+
+        void Update(Group group);
     }
 
     public class GroupService : IGroupService
@@ -33,9 +39,19 @@ namespace BusinessLogic.Services
             _groupRepository.Add(group);
         }
 
-        public void Delete (Group group)
+        public Group GetById (int Id)
         {
-            _groupRepository.Delete(group);
+            return _groupRepository.GetById(Id);
+        }
+
+        public void Delete (int Id)
+        {
+            _groupRepository.Delete(Id);
+        }
+
+        public void Update (Group group)
+        {
+            _groupRepository.Update(group);
         }
     }
 }

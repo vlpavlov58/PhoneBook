@@ -28,6 +28,14 @@ namespace PhoneBook.API.Controllers
             return Ok(groups);
         }
 
+        [HttpGet]
+        public IHttpActionResult GetById(int Id)
+        {
+            var group = _groupService.GetById(Id);
+
+            return Ok(group);
+        }
+
         [HttpPost]
         public IHttpActionResult Add([FromBody] Group group)
         {
@@ -39,6 +47,23 @@ namespace PhoneBook.API.Controllers
             return Ok();
         }
 
+        [HttpDelete]
+        public IHttpActionResult Delete(int Id)
+        {
+            _groupService.Delete(Id);
 
+            return Ok();
+        }
+
+        [HttpPut]
+        public IHttpActionResult Update([FromBody] Group group)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            _groupService.Update(group);
+
+            return Ok();
+        }
     }
 }
