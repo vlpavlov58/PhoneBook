@@ -60,5 +60,40 @@ namespace PhoneBook.AdonetLayer.Repositories
                 command.ExecuteNonQuery();
             }
         }
+
+        public void Delete (Group group)
+        {
+            using (SqlConnection conn
+                = new SqlConnection(ConnectionString))
+            {
+                conn.Open();
+
+                string sql = string.Format("DELETE FROM [Group] WHERE NAME = []");
+
+                var cmd = new SqlCommand(sql, conn);
+                cmd.Parameters.Remove(
+                    new SqlParameter("Name", group.Name));
+
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+        public int GetGroup (Group group)
+        {
+            using (SqlConnection conn
+                = new SqlConnection(ConnectionString))
+            {
+                conn.Open();
+
+                string sql = string.Format("SELECT FROM [Group] WHERE Id = 1");
+
+                var cmd = new SqlCommand(sql, conn);
+                cmd.Parameters.Remove(
+                    new SqlParameter("Id", group.Id));
+
+                cmd.ExecuteNonQuery();
+            }
+            return (group.Id);
+        } 
     }
 }
