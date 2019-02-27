@@ -1,40 +1,57 @@
-﻿using PhoneBook.Models.DataModels;
-using System;
+﻿using PhoneBook.AdonetLayer.Repositories;
+using PhoneBook.Models.DataModels;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BusinessLogic.Services
 {
     public interface IContactService
     {
         List<Contact> GetList();
+
+        Contact GetById(int Id);
+
+        void Add(Contact contact);
+
+        void Delete(int Id);
+
+        void Update(Contact contact);
     }
 
     public class ContactService : IContactService
     {
+        private readonly ContactRepository _contactRepository;
+
+        public ContactService()
+        {
+            _contactRepository = new ContactRepository();
+        }
+
         public List<Contact> GetList()
         {
-            var contacts = new List<Contact>
-            {
-                new Contact
-                {
-                    Id = 1,
-                    FirstName = "John",
-                    LastName = "Snow",
-                    Position = "Lord Commander"
-                },
-                new Contact
-                {
-                    Id = 2,
-                    FirstName = "John",
-                    LastName = "Doe",
-                    Position = "Anonymous"
-                }
-            };
+            return _contactRepository.GetAll()
+                                            .OrderBy(g => g.FirstName)
+                                            .ToList();
+        }
 
-            return contacts;
+        public void Add(Contact contact)
+        {
+            _contactRepository.Add(contact);
+        }
+
+        public Contact GetById(int Id)
+        {
+            return _contactRepository.GetById(Id);
+        }
+
+        public void Delete(int Id)
+        {
+            _contactRepository.Delete(Id);
+        }
+
+        public void Update(Contact contact)
+        {
+            _contactRepository.Update(contact);
         }
     }
 }

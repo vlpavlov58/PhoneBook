@@ -48,6 +48,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
     <Compile Include="Repositories\BaseRepository.cs" />
+    <Compile Include="Repositories\ConactRepository.cs" />
     <Compile Include="Repositories\GroupRepository.cs" />
   </ItemGroup>
   <ItemGroup>

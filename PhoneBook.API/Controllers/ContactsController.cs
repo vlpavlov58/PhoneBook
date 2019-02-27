@@ -1,4 +1,5 @@
 ﻿using BusinessLogic.Services;
+using PhoneBook.Models.DataModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,5 +25,44 @@ namespace PhoneBook.API.Controllers
 
             return Ok(contacts);
         }
+
+        [HttpGet]
+        public IHttpActionResult GetById(int Id)
+        {
+            var contact = _contactService.GetById(Id);
+
+            return Ok(contact);
+        }
+
+        [HttpPost]
+        public IHttpActionResult Add([FromBody] Contact contact)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            _contactService.Add(contact);
+
+            return Ok();
+        }
+
+        [HttpDelete]
+        public IHttpActionResult Delete(int Id)
+        {
+            _contactService.Delete(Id);
+
+            return Ok();
+        }
+
+        [HttpPut]
+        public IHttpActionResult Update([FromBody] Contact contact)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            _contactService.Update(contact);
+
+            return Ok();
+        }
+
     }
 }
