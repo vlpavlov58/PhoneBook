@@ -4,13 +4,14 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{1613C210-5F60-44B7-9204-33BAC664BF33}</ProjectGuid>
+    <ProjectGuid>{3F1ACBB2-8E81-4B24-A3CA-BF1EEFCEB720}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>BusinessLogic</RootNamespace>
-    <AssemblyName>BusinessLogic</AssemblyName>
+    <RootNamespace>Phonebook.DapperLayer</RootNamespace>
+    <AssemblyName>Phonebook.DapperLayer</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -30,6 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Dapper, Version=1.50.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dapper.1.50.7\lib\net451\Dapper.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -41,18 +45,23 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\ContactService.cs" />
-    <Compile Include="Services\GroupService.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Repositories\BaseDapperRepository.cs" />
+    <Compile Include="Repositories\GroupRepository.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\PhoneBook.AdonetLayer\PhoneBook.AdonetLayer.csproj">
-      <Project>{fb0c75b4-9637-4113-b70f-ecdb0754ad15}</Project>
-      <Name>PhoneBook.AdonetLayer</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Phonebook.DapperLayer\PhoneBook.DapperLayer.csproj">
-      <Project>{3f1acbb2-8e81-4b24-a3ca-bf1eefceb720}</Project>
-      <Name>PhoneBook.DapperLayer</Name>
-    </ProjectReference>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\PhoneBook.Models\PhoneBook.Models.csproj">
       <Project>{31684FEC-B085-41BF-9C5B-705A6A2572DA}</Project>
       <Name>PhoneBook.Models</Name>

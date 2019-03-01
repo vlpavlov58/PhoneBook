@@ -1,4 +1,4 @@
-﻿using PhoneBook.AdonetLayer.Repositories;
+﻿using Phonebook.DapperLayer.Repositories;
 using PhoneBook.Models.DataModels;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,22 +34,22 @@ namespace BusinessLogic.Services
                                             .ToList();
         }
 
-        public void Add (Group group)
+        public void Add(Group group)
         {
             _groupRepository.Add(group);
         }
 
-        public Group GetById (int Id)
+        public Group GetById(int Id)
         {
             return _groupRepository.GetById(Id);
         }
 
-        public void Delete (int Id)
+        public void Delete(int Id)
         {
             _groupRepository.Delete(Id);
         }
 
-        public void Update (Group group)
+        public void Update(Group group)
         {
             _groupRepository.Update(group);
         }
