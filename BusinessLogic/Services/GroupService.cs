@@ -1,5 +1,5 @@
-﻿using Phonebook.DapperLayer.Repositories;
-using PhoneBook.Models.DataModels;
+﻿using PhoneBook.EfDataLayer.DataModel;
+using PhoneBook.EfDataLayer.Repositories;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -9,13 +9,13 @@ namespace BusinessLogic.Services
     {
         List<Group> GetList();
 
-        Group GetById(int Id);
+        //IEnumerable<Group> GetById(int Id);
 
-        void Add(Group group);
+        //void Add(Group group);
 
-        void Delete(int Id);
+        //void Delete(int Id);
 
-        void Update(Group group);
+        //void Update(Group group);
     }
 
     public class GroupService : IGroupService
@@ -34,24 +34,24 @@ namespace BusinessLogic.Services
                                             .ToList();
         }
 
-        public void Add(Group group)
-        {
-            _groupRepository.Add(group);
-        }
+        //public void Add(Group group)
+        //{
+        //    _groupRepository.Add(group);
+        //}
 
-        public Group GetById(int Id)
-        {
-            return _groupRepository.GetById(Id);
-        }
+        //public IEnumerable<Group> GetById(int Id)
+        //{
+        //    return _groupRepository.GetById(Id);
+        //}
 
-        public void Delete(int Id)
-        {
-            _groupRepository.Delete(Id);
-        }
+        //public void Delete(int Id)
+        //{
+        //    _groupRepository.Delete(Id);
+        //}
 
-        public void Update(Group group)
-        {
-            _groupRepository.Update(group);
-        }
+        //public void Update(Group group)
+        //{
+        //    _groupRepository.Update(group);
+        //}
     }
 }

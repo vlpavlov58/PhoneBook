@@ -2,7 +2,7 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Phonebook.DapperLayer.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
-    <Setting Name="PBPhonebook" Type="System.String" Scope="User">
+    <Setting Name="PBPhonebook" Type="System.String" Scope="Application">
       <Value Profile="(Default)">Data Source=VLADYSLAV-PC;Initial Catalog=PhoneBook;Integrated Security=false;User ID=phonebook;Password=phonebook;</Value>
     </Setting>
   </Settings>

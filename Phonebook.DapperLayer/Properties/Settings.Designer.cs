@@ -23,16 +23,13 @@ namespace Phonebook.DapperLayer.Properties {
             }
         }
         
-        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Data Source=VLADYSLAV-PC;Initial Catalog=PhoneBook;Integrated Security=false;User" +
             " ID=phonebook;Password=phonebook;")]
         public string PBPhonebook {
             get {
                 return ((string)(this["PBPhonebook"]));
-            }
-            set {
-                this["PBPhonebook"] = value;
             }
         }
     }

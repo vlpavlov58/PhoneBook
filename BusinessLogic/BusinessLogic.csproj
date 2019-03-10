@@ -53,9 +53,9 @@
       <Project>{3f1acbb2-8e81-4b24-a3ca-bf1eefceb720}</Project>
       <Name>PhoneBook.DapperLayer</Name>
     </ProjectReference>
-    <ProjectReference Include="..\PhoneBook.Models\PhoneBook.Models.csproj">
-      <Project>{31684FEC-B085-41BF-9C5B-705A6A2572DA}</Project>
-      <Name>PhoneBook.Models</Name>
+    <ProjectReference Include="..\PhoneBook.EfDataLayer\PhoneBook.EfDataLayer.csproj">
+      <Project>{f8beae93-763d-4874-bfac-61bc75781234}</Project>
+      <Name>PhoneBook.EfDataLayer</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -61,11 +61,5 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\PhoneBook.Models\PhoneBook.Models.csproj">
-      <Project>{31684FEC-B085-41BF-9C5B-705A6A2572DA}</Project>
-      <Name>PhoneBook.Models</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

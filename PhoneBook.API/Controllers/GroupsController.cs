@@ -28,42 +28,42 @@ namespace PhoneBook.API.Controllers
             return Ok(groups);
         }
 
-        [HttpGet]
-        public IHttpActionResult GetById(int Id)
-        {
-            var group = _groupService.GetById(Id);
+        //[HttpGet]
+        //public IHttpActionResult GetById(int Id)
+        //{
+        //    var group = _groupService.GetById(Id);
 
-            return Ok(group);
-        }
+        //    return Ok(group);
+        //}
 
-        [HttpPost]
-        public IHttpActionResult Add([FromBody] Group group)
-        {
-            if (!ModelState.IsValid)
-                return BadRequest(ModelState);
+        //[HttpPost]
+        //public IHttpActionResult Add([FromBody] Group group)
+        //{
+        //    if (!ModelState.IsValid)
+        //        return BadRequest(ModelState);
 
-            _groupService.Add(group);
+        //    _groupService.Add(group);
 
-            return Ok();
-        }
+        //    return Ok();
+        //}
 
-        [HttpDelete]
-        public IHttpActionResult Delete(int Id)
-        {
-            _groupService.Delete(Id);
+        //[HttpDelete]
+        //public IHttpActionResult Delete(int Id)
+        //{
+        //    _groupService.Delete(Id);
 
-            return Ok();
-        }
+        //    return Ok();
+        //}
 
-        [HttpPut]
-        public IHttpActionResult Update([FromBody] Group group)
-        {
-            if (!ModelState.IsValid)
-                return BadRequest(ModelState);
+        //[HttpPut]
+        //public IHttpActionResult Update([FromBody] Group group)
+        //{
+        //    if (!ModelState.IsValid)
+        //        return BadRequest(ModelState);
 
-            _groupService.Update(group);
+        //    _groupService.Update(group);
 
-            return Ok();
-        }
+        //    return Ok();
+        //}
     }
 }
